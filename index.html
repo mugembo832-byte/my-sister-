@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
 
     <title>For My Didi ❤️</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
     <style>
@@ -18,10 +18,12 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        html {
-            scroll-behavior: smooth;
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
         }
 
         body {
@@ -29,223 +31,106 @@
             color: #f7eee3;
             font-family: "Poppins", sans-serif;
             line-height: 1.6;
-        }
-
-        section {
-            padding: 90px 20px;
-            max-width: 1100px;
-            margin: auto;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
         }
 
         /* HERO */
-
         .hero {
             min-height: 100vh;
+            min-height: 100dvh;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             background:
-                radial-gradient(circle at top, #3b2718 0%, #0d0b09 55%);
-            padding: 30px 20px;
+                radial-gradient(circle at 50% 20%, #3b2718 0%, #0d0b09 70%);
+            padding: clamp(30px, 6vh, 60px) clamp(16px, 4vw, 30px);
+            position: relative;
         }
 
         .eyebrow {
             color: #d6a85c;
-            letter-spacing: 5px;
+            letter-spacing: clamp(3px, 1vw, 5px);
             text-transform: uppercase;
-            font-size: 12px;
-            margin-bottom: 20px;
+            font-size: clamp(11px, 2.5vw, 13px);
+            margin-bottom: clamp(12px, 3vh, 20px);
+            font-weight: 500;
         }
 
         h1 {
             font-family: "Cormorant Garamond", serif;
-            font-size: clamp(55px, 10vw, 110px);
-            line-height: .9;
+            font-size: clamp(38px, 8.5vw, 100px);
+            line-height: 1.05;
             font-weight: 600;
             color: #d9aa5d;
+            text-shadow: 0 4px 20px rgba(217, 170, 93, 0.25);
+            max-width: 900px;
         }
 
         .hero h2 {
             font-family: "Cormorant Garamond", serif;
-            font-size: clamp(28px, 5vw, 55px);
+            font-size: clamp(24px, 5vw, 54px);
             font-weight: 400;
-            margin-top: 15px;
+            margin-top: clamp(8px, 2vh, 15px);
+            color: #f7eee3;
         }
 
         .hero p {
-            max-width: 600px;
-            margin-top: 25px;
+            max-width: 580px;
+            width: 100%;
+            margin-top: clamp(16px, 3vh, 25px);
             color: #c8bdb2;
+            font-size: clamp(14px, 3vw, 16.5px);
+            line-height: 1.7;
+            padding: 0 10px;
         }
 
         .button {
-            display: inline-block;
-            margin-top: 35px;
-            padding: 13px 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: clamp(28px, 5vh, 44px);
+            padding: clamp(12px, 2.5vh, 16px) clamp(28px, 6vw, 42px);
             border: 1px solid #d6a85c;
             color: #d6a85c;
             text-decoration: none;
-            border-radius: 30px;
-            transition: .3s;
+            border-radius: 35px;
+            transition: all .35s ease;
             cursor: pointer;
-            background: transparent;
+            background: rgba(214, 168, 92, 0.05);
+            font-size: clamp(14px, 3.5vw, 16px);
+            font-weight: 500;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(214, 168, 92, 0.18);
+            touch-action: manipulation;
         }
 
-        .button:hover {
+        .button:hover,
+        .button:focus-visible {
             background: #d6a85c;
             color: #0d0b09;
+            box-shadow: 0 0 30px rgba(214, 168, 92, 0.55);
+            transform: translateY(-3px);
         }
 
-        /* NOTE */
-
-        .card {
-            background: #17130f;
-            border: 1px solid #3a2b20;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, .25);
+        .button:active {
+            transform: scale(0.97);
         }
 
-        .card h2 {
-            font-family: "Cormorant Garamond", serif;
-            color: #d6a85c;
-            font-size: 42px;
-            margin-bottom: 20px;
-        }
-
-        .card p {
-            color: #cfc4b8;
-            margin-bottom: 15px;
-        }
-
-        /* MEMORIES */
-
-        .section-title {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 55px;
-            margin-bottom: 40px;
-            color: #d6a85c;
-        }
-
-        .memories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .memory {
-            height: 280px;
-            border-radius: 18px;
-            overflow: hidden;
-            position: relative;
-            background: #211912;
-        }
-
-        .memory img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: .75;
-            transition: .4s;
-        }
-
-        .memory:hover img {
-            transform: scale(1.08);
-            opacity: 1;
-        }
-
-        .memory-text {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 25px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, .9));
-        }
-
-        /* QUIZ */
-
-        .quiz-question {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .answers {
-            display: grid;
-            gap: 12px;
-        }
-
-        .answer {
-            padding: 14px 18px;
-            border: 1px solid #4b392a;
-            border-radius: 10px;
-            cursor: pointer;
-            background: #120f0c;
-            color: #eee;
-            transition: .2s;
-        }
-
-        .answer:hover {
-            border-color: #d6a85c;
-        }
-
-        #quiz-result {
-            margin-top: 20px;
-            color: #d6a85c;
-            font-weight: 600;
-        }
-
-        /* SURPRISES */
-
-        .surprises {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-        }
-
-        .surprise {
-            padding: 30px;
-            background: #17130f;
-            border: 1px solid #3a2b20;
-            border-radius: 18px;
-            text-align: center;
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .surprise:hover {
-            transform: translateY(-5px);
-            border-color: #d6a85c;
-        }
-
-        .surprise-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .hidden-message {
-            display: none;
-            margin-top: 15px;
-            color: #d6a85c;
-        }
-
-        /* FOOTER */
-
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            color: #8d8177;
-            border-top: 1px solid #241c16;
-        }
-
-        @media(max-width:600px) {
-            section {
-                padding: 65px 18px;
+        @media (max-width: 480px) {
+            .hero {
+                padding: 30px 16px;
             }
-
-            .card {
-                padding: 25px;
+            .button {
+                width: 100%;
+                max-width: 280px;
             }
         }
     </style>
@@ -253,8 +138,7 @@
 
 <body>
 
-    <!-- HERO -->
-
+    <!-- HERO LANDING -->
     <section class="hero">
 
         <div class="eyebrow">
@@ -270,232 +154,11 @@
             They simply become one of the most beautiful parts of life.
         </p>
 
-        <a href="#note" class="button">
-            Open Your Gift
+        <a href="main.html" class="button">
+            Open Your Gift ✨
         </a>
 
     </section>
-
-
-    <!-- NOTE -->
-
-    <section id="note">
-
-        <div class="eyebrow">
-            A Note For Didi
-        </div>
-
-        <div class="card">
-
-            <h2>To My Amazing Didi</h2>
-
-            <p>
-                Dear Didi,
-            </p>
-
-            <p>
-                No matter how much we fight, tease each other,
-                or annoy each other, you'll always be one of
-                the most important people in my life.
-            </p>
-
-            <p>
-                Thank you for all the memories, laughs,
-                advice and countless moments we've shared.
-            </p>
-
-            <p>
-                Happy Raksha Bandhan. ❤️
-            </p>
-
-            <p>
-                Always stay the amazing person you are.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- MEMORIES -->
-
-    <section>
-
-        <div class="eyebrow">
-            Our Memories
-        </div>
-
-        <h2 class="section-title">
-            Little Moments
-        </h2>
-
-        <div class="memories">
-
-            <div class="memory">
-                <img src="WhatsApp Image 2026-08-18 at 2.37.54 PM.jpeg" alt="Best memories">
-                <div class="memory-text">
-                    <strong>Best memories</strong>
-                    <p>Moments I'll never forget.</p>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="WhatsApp Image 2026-08-18 at 2.46.41 PM.jpeg" alt="Crazy times">
-                <div class="memory-text">
-                    <strong>Crazy times</strong>
-                    <p>Because life is better with you.</p>
-                </div>
-            </div>
-
-            <div class="memory">
-                <img src="WhatsApp Image 2026-08-18 at 2.44.26 PM.jpeg" alt="Forever us">
-                <div class="memory-text">
-                    <strong>Forever us</strong>
-                    <p>One bond. A million memories.</p>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- QUIZ -->
-
-    <section>
-
-        <div class="eyebrow">
-            How Well Do You Know Me?
-        </div>
-
-        <h2 class="section-title">
-            Didi Quiz 😏
-        </h2>
-
-        <div class="card">
-
-            <div class="quiz-question">
-                What is Brother'sfavourite mithai?
-            </div>
-
-            <div class="answers">
-
-                <button class="answer" onclick="answer(false)">
-                    Gulab Jamun
-                </button>
-
-                <button class="answer" onclick="answer(true)">
-                    Kaju Katli
-                </button>
-
-                <button class="answer" onclick="answer(false)">
-                    Jalebi
-                </button>
-
-                <button class="answer" onclick="answer(false)">
-                    Rasgulla
-                </button>
-
-            </div>
-
-            <div id="quiz-result"></div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SURPRISES -->
-
-    <section>
-
-        <div class="eyebrow">
-            Little Surprises
-        </div>
-
-        <h2 class="section-title">
-            Open It❤️
-        </h2>
-
-        <div class="surprises">
-
-            <div class="surprise" onclick="reveal(this)">
-                <div class="surprise-icon">💌</div>
-                <strong>A Secret Message</strong>
-                <div class="hidden-message">
-                    A Little Secret 🤫💖
-
-                    Hey Didi, 🤫
-                    I have a tiny secret to tell you…
-
-                    You’re not just my sister—you’re one of the most special people in my life. ❤️
-                    Even when we fight, tease each other, or annoy each other, there’s one thing that never changes:
-                    I’ll always be there for you. 🫶
-
-                    And here’s the real secret…
-                    If I could choose my sister in every lifetime, I’d choose you again. 🌸✨
-
-                    Happy Raksha Bandhan, Didi. 🪷💝
-                </div>
-            </div>
-
-            <div class="surprise" onclick="reveal(this)">
-                <div class="surprise-icon">🎁</div>
-                <strong>Your Surprise</strong>
-                <div class="hidden-message">
-                    You deserve all the happiness in the world.
-                </div>
-            </div>
-
-            <div class="surprise" onclick="reveal(this)">
-                <div class="surprise-icon">❤️</div>
-                <strong>One Last Thing</strong>
-                <div class="hidden-message">
-                    Love you, Didi. Always.
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <footer>
-        Made with ❤️ specially for Didi
-    </footer>
-
-
-    <script>
-
-        function answer(correct) {
-
-            const result = document.getElementById("quiz-result");
-
-            if (correct) {
-                result.innerHTML =
-                    "🎉 Correct! You really do know Brother's!";
-            } else {
-                result.innerHTML =
-                    "😂 Nope! Try again, sunshine.";
-            }
-
-        }
-
-
-        function reveal(element) {
-
-            const message =
-                element.querySelector(".hidden-message");
-
-            if (message.style.display === "block") {
-                message.style.display = "none";
-            } else {
-                message.style.display = "block";
-            }
-
-        }
-
-    </script>
 
 </body>
 
